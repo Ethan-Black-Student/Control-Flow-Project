@@ -18,4 +18,6 @@ completion = client.chat.completions.create(
     {"role": "user", "content": question}
   ]
 )
-print(completion.choices[0].message.content)
+
+response = (completion.choices[0].message.content)
+print(response)
