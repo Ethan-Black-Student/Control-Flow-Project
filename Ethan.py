@@ -43,9 +43,9 @@ time.sleep (1.5)
 
 choice = input("What do you wanna do? ").strip().lower()
 
-if choice == "b":
-    
-  while choice == "b":
+while choice != "i":
+
+  if choice == "b":
 
     print("Once again, you wake up in an abandomed mental hospital, and your only goal is to survive the night!")
 
@@ -57,6 +57,17 @@ if choice == "b":
 
     choice = input("What do you wanna do? ").strip().lower()
 
-if choice == "i":
-    
-  print("eeyyy")
+  else:
+
+    print("Seriosly now, you wake up in an abandomed mental hospital, and your only goal is to survive the night!")
+
+    time.sleep (1.5)
+
+    print("Investigate soroundings (i) or go back to bed (b)")
+
+    time.sleep (1.5)
+
+    choice = input("What do you wanna do? ").strip().lower()
+
+
+print ("yayyy")
