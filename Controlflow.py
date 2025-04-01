@@ -2,6 +2,8 @@
 
 from openai import OpenAI
 
+"""
+
 OPEN_AI_KEY = "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"
 
 print("Welcome")
@@ -21,3 +23,7 @@ completion = client.chat.completions.create(
 
 response = (completion.choices[0].message.content)
 print(response)
+
+"""
+
+print("")
