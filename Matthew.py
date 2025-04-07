@@ -51,21 +51,61 @@ if choice == "l":
   print()
 
 #Hallway choice
+while choice != "r":
   print()
-  Choice=input("Do you head left (l) or right (r)").strip().lower()
+  choice=input("Do you head left (l) or right (r)").strip().lower()
   print()
 
 
 #If you keep going down the wrong path this is the code for that
-if Choice=="l":
-  print ("as you start walking, the banging gets far louder, you start to question what you might find")
-  print()
-  Choice2=input("Do you keep on walking(w) or do you turn around(t)").strip().lower()
-  if Choice2=="w":
-    print("You didn't think it possible but rthe banging gets louder")
-    #Another game
+  if choice=="l":
+
+    print()
+    print ("as you start walking, the banging gets far louder, you start to question what you might find")
+    print()
+
+    while choice != "r":
+      
+      Choice2=input("Do you keep on walking(w) or do you turn around(t)").strip().lower()
+
+      if Choice2=="w":
+
+        print("You didn't think it possible but the banging gets louder")
+        #Another game
+
+      if Choice2=="t":
+        choice = "r"
+
+      else:
+
+        print("that was not an option")
 
 #This is if you go the right way or turn back
-if Choice== "r" or Choice2=="t":
- Choice=input("As you walk along the hallway you stop three rooms. a lab (l), a storage room (s) and a patient room (p). which room would you like to enter").strip().lower()
+if choice== "r":
+  win = "false"
+while win == "false":
+  Choice=input("As you walk along the hallway you stop three rooms. a lab (l), a storage room (s) and a patient room (p). which room would you like to enter").strip().lower()
+ 
+  if choice=="l":
 
+    print()
+    print("You enter a labratory filled with smashed beakers and bubbling liquid flowing all over the floor. At the back is a locked door requiring a four digit code")
+    print()
+
+  choice=input("Do you leave the room (l) or input the code (i)")
+
+  while exit != "y":
+
+    print("What is the four digit code")
+
+    code=input()
+
+    if code=="4379":
+      win = "true"
+    
+    else:
+      print("Incorrect code")
+
+      exit=input("Do you want to exit the room yes (y) or no (n) ").strip().lower()
+
+print("Congradulations you have exscpaed outside of the mental hospital, you win for now")
