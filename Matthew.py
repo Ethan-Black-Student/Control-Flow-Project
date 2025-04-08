@@ -10,7 +10,7 @@ print()
 
 choice = input("Whats your next move ").strip().lower()
 
-#this and while loop if you go down the wrong path
+#this is a while loop if you go down the wrong path
 while choice !="l":
   
   if choice=="f":
@@ -21,6 +21,7 @@ while choice !="l":
 
     choice = input("Do you leave the room to check out the noise (c) or do you Hide in the corner(h)").strip().lower()
     
+    #While loop to prevent incorrect inputs
     while choice != "c":
     
       if choice =="h":
@@ -50,7 +51,7 @@ if choice == "l":
   print("You step outside into a hallway filled with flickering lights and smashed glass")
   print()
 
-#Hallway choice
+#while loop to choose left or right
 while choice != "r":
   print()
   choice=input("Do you head left (l) or right (r)").strip().lower()
@@ -64,6 +65,7 @@ while choice != "r":
     print ("as you start walking, the banging gets far louder, you start to question what you might find")
     print()
 
+    #While loop  choice that keeps the choice from breaking from incorrect inputs
     while choice != "r":
       
       Choice2=input("Do you keep on walking(w) or do you turn around(t)").strip().lower()
@@ -80,11 +82,11 @@ while choice != "r":
 
         print("that was not an option")
 
-#This is if you go the right way or turn back
+#If you havent won it will keep reapting this part with a while loop
 if choice== "r":
   win = "false"
-while win == "false":
-  Choice=input("As you walk along the hallway you stop three rooms. a lab (l), a storage room (s) and a patient room (p). which room would you like to enter").strip().lower()
+while win == "false": 
+  choice=input("As you walk along the hallway you stop three rooms. a lab (l), a storage room (s) and a patient room (p). which room would you like to enter ").strip().lower()
  
   if choice=="l":
 
@@ -92,20 +94,32 @@ while win == "false":
     print("You enter a labratory filled with smashed beakers and bubbling liquid flowing all over the floor. At the back is a locked door requiring a four digit code")
     print()
 
-  choice=input("Do you leave the room (l) or input the code (i)")
+    choice=input("Do you leave the room (l) or input the code (i)")
+    if choice != "i":
+      if choice== "r":
+         win = "false"
+      while win == "false": 
+        choice=input("As you walk along the hallway you stop three rooms. a lab (l), a storage room (s) and a patient room (p). which room would you like to enter ").strip().lower()
+ 
+      
 
-  while exit != "y":
+      
+    if choice=="i":
+      while exit != "y":
 
-    print("What is the four digit code")
+        print("What is the four digit code")
+      # The place to input code to escape the while loop to win
+      code=input()
 
-    code=input()
+      #What the correct code is
+      if code=="4379":
+        win = "true"
+        
+      #If you dont input the correct code
+      else:
+         print("Incorrect code")
 
-    if code=="4379":
-      win = "true"
-    
-    else:
-      print("Incorrect code")
-
+        #Allows exit of the Four digit code loop
       exit=input("Do you want to exit the room yes (y) or no (n) ").strip().lower()
 
-print("Congradulations you have exscpaed outside of the mental hospital, you win for now")
+    print("Congradulations you have exscpaed outside of the mental hospital, you win for now")
