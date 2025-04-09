@@ -145,3 +145,5 @@ thread2.start()
 
 thread1.join()
 thread2.join()
+
+#need to autor code, do read me, input wathew section, get new chatgpt api code.
