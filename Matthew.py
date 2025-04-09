@@ -123,3 +123,33 @@ while win == "false":
       exit=input("Do you want to exit the room yes (y) or no (n) ").strip().lower()
 
     print("Congradulations you have exscpaed outside of the mental hospital, you win for now")
+
+  if choice =="s":
+      print()
+      print ("you walk into a storage room full of boxes. You notice on the wall written in some sticky red liqiud a four nuber code (4379)")
+      print()
+      print("You leave the room")
+    
+  if choice=="p":
+    print()
+    print("You walk into a room filled with corpses littering the floor. One of them sits up and looks at you. Mabye you should ask it a question")
+    print()
+
+    OPEN_AI_KEY="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"
+
+    question = str(input(""))
+    print()
+
+    client = OpenAI(api_key=OPEN_AI_KEY)
+
+    completion = client.chat.completions.create(
+      model="gpt-4o-mini",
+      store=True,
+      messages=[
+        {"role": "system", "content": "You are a talking corpse with a witty attitude and a cruel sense of humor."},
+        {"role": "user", "content": question}
+      ]
+    )
+
+    response = (completion.choices[0].message.content)
+    print(response)
