@@ -2,47 +2,7 @@ from openai import OpenAI
 
 import time
 
-
-#Choice to fortify room
-print()
-print('Do you fortify your room (f) or go out and explore (l)')
-print()
-
-choice = input("Whats your next move ").strip().lower()
-
-#this is a while loop if you go down the wrong path
-while choice !="l":
-  
-  if choice=="f":
-
-    print()
-    print("You decide to barricade the doors and hide. After a while you hear a loud banging Down the hall")
-    print()
-
-    choice = input("Do you leave the room to check out the noise (c) or do you Hide in the corner(h)").strip().lower()
-    
-    #While loop to prevent incorrect inputs
-    while choice != "c":
-    
-      if choice =="h":
-        print()
-        print ("The noise get louder then stops abruptly followed by the sounds of faint murmur")
-        print()
-        #ADD GAME RIGHT HERE
-
-        choice = input("Do you leave the room to check out the noise (c) or do you Hide in the corner(h)").strip().lower()
-
-      else:
-        print()
-        choice = input("Ok buddy do you leave the room to check out the noise (c) or do you Hide in the corner(h)").strip().lower()
-        print()
-
-    if choice =="c":
-      choice = "l"
-
-  else:
-    print('Hurry up you do mot have all day. Do you fortify your room (f) or go out and explore (l)')
-    choice=input("Whats your next move ").strip().lower()
+choice=input("Whats your next move ").strip().lower()
 
 #If you choose to leave the room
 if choice == "l":
