@@ -1,3 +1,5 @@
+main.py
+
 import threading
 
 import time
@@ -185,12 +187,12 @@ def game():
 
       explore = input("Whats your next move ").strip().lower()
 
-# Matthews section start
+  # Matthews section start
 
   global winner
   winner = "yes"
 
-# Timer code, credit Joey
+  # Timer code, credit Joey
 
 def timer():
     
