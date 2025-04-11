@@ -1,0 +1,41 @@
+import random
+escape="hi"
+
+code = rand.int
+
+while escape != "yes":
+
+    choice=input("Do you enter the lab(l) the paitent room (p) or the storage room (s)").lower().strip()
+
+    if choice=="s":
+        
+        print("You enter the storage and see a code (", code ") and you wonder what it could be for?")
+
+    if choice== "l":
+        print ("You enter the lab and see a key pad")
+        keypad=input("Do you leave (l) or input a code (c)").lower().strip()
+        
+        if keypad=="c":
+            code1=input("enter a code ")
+
+            if code1 == code:
+                
+                winner = "yes"
+
+            else:
+
+                print("That codes invalid")
+        
+        if keypad=="l":
+            print("You exit the room")
+
+
+        else:
+            print("That is not an option")
+    
+    if choice=="p":
+        print("Not finished yet")
+
+    
+    else:
+        print("That was not an option")

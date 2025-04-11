@@ -95,40 +95,34 @@ while win == "false":
     print()
 
     choice=input("Do you leave the room (l) or input the code (i)")
-    if choice != "i":
-      if choice== "r":
-         win = "false"
-      while win == "false": 
-        choice=input("As you walk along the hallway you stop three rooms. a lab (l), a storage room (s) and a patient room (p). which room would you like to enter ").strip().lower()
- 
-      
-
       
     if choice=="i":
-      while exit != "y":
+       while exit != "y":
 
         print("What is the four digit code")
-      # The place to input code to escape the while loop to win
-      code=input()
+        # The place to input code to escape the while loop to win
+        code=input()
 
-      #What the correct code is
-      if code=="4379":
-        win = "true"
+        #What the correct code is
+        if code=="4379":
+          win = "true"
         
-      #If you dont input the correct code
-      else:
-         print("Incorrect code")
+        #If you dont input the correct code
+        else:
+          print("Incorrect code")
 
         #Allows exit of the Four digit code loop
-      exit=input("Do you want to exit the room yes (y) or no (n) ").strip().lower()
+        exit=input("Do you want to exit the room yes (y) or no (n) ").strip().lower()
 
-    print("Congradulations you have exscpaed outside of the mental hospital, you win for now")
+    if win=="true":
+      print("Congradulations you have exscpaed outside of the mental hospital, you win for now")
 
   if choice =="s":
       print()
       print ("you walk into a storage room full of boxes. You notice on the wall written in some sticky red liqiud a four nuber code (4379)")
       print()
       print("You leave the room")
+      win=="false"
     
   if choice=="p":
     print()
@@ -153,3 +147,4 @@ while win == "false":
 
     response = (completion.choices[0].message.content)
     print(response)
+    win=="false"
