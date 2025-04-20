@@ -1,6 +1,6 @@
 
 import threading
-
+import random
 import time
 
 from openai import OpenAI
@@ -267,3 +267,69 @@ thread1.join()
 thread2.join()
 
 #need to athour code, do read me, input matthew section, get new chatgpt api code.
+
+winner="no"
+
+code = "9745"
+
+while winner == "no":
+    print()
+    choice=input("Do you enter the lab(l) the paitent room (p) or the storage room (s)").lower().strip()
+    print()
+    if choice=="s":
+        print()
+        i=("You enter the storage and see a code, what could it be for ")
+        print()
+        print(i+""+ code)
+        print()
+        print("now knowing the code you leave the room")
+
+    if choice== "l": 
+        print()
+        print ("You enter the lab and see a key pad")
+        print()
+        keypad=input("Do you leave (l) or input a code (c)").lower().strip()
+        
+        if keypad=="c":
+            print()
+            code1=input("enter a code ")
+
+            if code1 == code:
+                
+                winner = "yes"
+
+            else:
+
+                print("That codes invalid")
+        
+        if keypad=="l":
+            print("You exit the room")
+
+
+       
+    
+    if choice=="p":
+        print("Not finished yet")
+        client = OpenAI(api_key=OPEN_AI_KEY)
+
+    completion = client.chat.completions.create(
+    model="gpt-4o-mini",
+    store=True,
+    messages=[
+      {"role": "system", "content": "You are a corpse that has awoken but is not any threat provide a sacastic yet dark and funny response to any questions."},
+      {"role": "user", "content": question}
+    ]
+  )
+
+    response = (completion.choices[0].message.content)
+    print(response)
+
+    print()
+    question = str(input(""))
+    print()
+
+    print("After that wierd encounter you leave the room")
+
+
+if winner == "yes":
+    print("You win")
