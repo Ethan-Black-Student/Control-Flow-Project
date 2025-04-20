@@ -64,11 +64,10 @@ def game():
       choice = input("What do you wanna do? ").strip().lower()
       print()
 
-  """
 
   # ChatGpt conversation start
 
-  OPEN_AI_KEY = "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"
+  OPEN_AI_KEY = "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"
 
   print()
   print("You spot a phone resting on your side table, but as you start to reach for it, it starts to ring -- someone is calling! Now is your chance to find out whats really going on, but the phone is almost dead!!")
@@ -135,8 +134,6 @@ def game():
   print()
   print("The phone has died")
   print()
-
-  """
 
   # Explore vs fortify
 
