@@ -5,6 +5,8 @@ import time
 
 from openai import OpenAI
 
+
+
 winner = "no"
 
 def game():
@@ -67,7 +69,7 @@ def game():
 
   # ChatGpt conversation start
 
-  OPEN_AI_KEY = "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"
+  OPEN_AI_KEY = "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"
 
   print()
   print("You spot a phone resting on your side table, but as you start to reach for it, it starts to ring -- someone is calling! Now is your chance to find out whats really going on, but the phone is almost dead!!")
@@ -224,13 +226,76 @@ def game():
   
   if  move == "r":
 
-    print()
-    print("As you walk along the hallway, you find three rooms. a lab, a storage room and a patient room.")
+    winner="no"
+
+  code = "9745"
+
+  while winner == "no":
+      print()
+      choice=input("Do you enter the lab(l) the paitent room (p) or the storage room (s)").lower().strip()
+      print()
+      if choice=="s":
+          print()
+          i=("You enter the storage and see a code, what could it be for ")
+          print()
+          print(i+""+ code)
+          print()
+          print("now knowing the code you leave the room")
+
+      if choice== "l": 
+          print()
+          print ("You enter the lab and see a key pad")
+          print()
+          keypad=input("Do you leave (l) or input a code (c)").lower().strip()
+          
+          if keypad=="c":
+              print()
+              code1=input("enter a code ")
+
+              if code1 == code:
+                  
+                  winner = "yes"
+
+              else:
+
+                  print("That codes invalid")
+          
+          if keypad=="l":
+              print("You exit the room")
+
+
+        
+      
+      if choice=="p":
+          print("Not finished yet")
+          client = OpenAI(api_key=OPEN_AI_KEY)
+
+      completion = client.chat.completions.create(
+      model="gpt-4o-mini",
+      store=True,
+      messages=[
+        {"role": "system", "content": "You are a corpse that has awoken but is not any threat provide a sacastic yet dark and funny response to any questions."},
+        {"role": "user", "content": question}
+      ]
+    )
+
+      response = (completion.choices[0].message.content)
+      print(response)
+
+      print()
+      question = str(input(""))
+      print()
+
+      print("After that wierd encounter you leave the room")
+
+
+  if winner == "yes":
+      print("You win")
 
   else:
 
-    print()
-    print("That was not an option")
+      print()
+      print("That was not an option")
 
   #Matthew codeeee
 
@@ -265,68 +330,3 @@ thread2.join()
 
 #need to athour code, do read me, input matthew section, get new chatgpt api code.
 
-winner="no"
-
-code = "9745"
-
-while winner == "no":
-    print()
-    choice=input("Do you enter the lab(l) the paitent room (p) or the storage room (s)").lower().strip()
-    print()
-    if choice=="s":
-        print()
-        i=("You enter the storage and see a code, what could it be for ")
-        print()
-        print(i+""+ code)
-        print()
-        print("now knowing the code you leave the room")
-
-    if choice== "l": 
-        print()
-        print ("You enter the lab and see a key pad")
-        print()
-        keypad=input("Do you leave (l) or input a code (c)").lower().strip()
-        
-        if keypad=="c":
-            print()
-            code1=input("enter a code ")
-
-            if code1 == code:
-                
-                winner = "yes"
-
-            else:
-
-                print("That codes invalid")
-        
-        if keypad=="l":
-            print("You exit the room")
-
-
-       
-    
-    if choice=="p":
-        print("Not finished yet")
-        client = OpenAI(api_key=OPEN_AI_KEY)
-
-    completion = client.chat.completions.create(
-    model="gpt-4o-mini",
-    store=True,
-    messages=[
-      {"role": "system", "content": "You are a corpse that has awoken but is not any threat provide a sacastic yet dark and funny response to any questions."},
-      {"role": "user", "content": question}
-    ]
-  )
-
-    response = (completion.choices[0].message.content)
-    print(response)
-
-    print()
-    question = str(input(""))
-    print()
-
-    print("After that wierd encounter you leave the room")
-
-
-if winner == "yes":
-    print("You win")
