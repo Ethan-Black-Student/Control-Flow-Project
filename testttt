@@ -64,6 +64,3 @@ while winner == "no":
 
 if winner == "yes":
     print("You win")
-
-    
-    
