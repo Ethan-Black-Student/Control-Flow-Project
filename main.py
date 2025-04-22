@@ -68,7 +68,7 @@ def game():
 
 
   # ChatGpt conversation start
-
+  #Vairable for secret key
   OPEN_AI_KEY = "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"
 
   print()
@@ -143,7 +143,7 @@ def game():
   print()
 
   explore = input("Whats your next move ").strip().lower()
-
+  
   while explore != "e":
     
     if explore == "f":
@@ -229,47 +229,49 @@ def game():
     winner="no"
 
   code = "9745"
-
+  # While loop to keep looping back a few questions
   while winner == "no":
       print()
       choice=input("Do you enter the lab(l) the paitent room (p) or the storage room (s)").lower().strip()
       print()
+      #If statement for if the input=s
       if choice=="s":
           print()
           i=("You enter the storage and see a code, what could it be for ")
           print()
+          #Prints a sentecne with string concatnation
           print(i+""+ code)
           print()
           print("now knowing the code you leave the room")
-
+      #If statements for if the unser input=l
       if choice== "l": 
           print()
           print ("You enter the lab and see a key pad")
           print()
           keypad=input("Do you leave (l) or input a code (c)").lower().strip()
-          
+          #If staemnt that allows the user to input a code
           if keypad=="c":
               print()
               code1=input("enter a code ")
-
+              #Checks if code is correct
               if code1 == code:
-                  
+                  #If code is correct ends the while loop
                   winner = "yes"
 
               else:
 
                   print("That codes invalid")
-          
+          #Allows you to exit the room if you cant get the code
           if keypad=="l":
               print("You exit the room")
 
 
         
-      
+      #If statement fro if the user input=p
       if choice=="p":
           print("Not finished yet")
           client = OpenAI(api_key=OPEN_AI_KEY)
-
+      #A chatgpt response
       completion = client.chat.completions.create(
       model="gpt-4o-mini",
       store=True,
@@ -288,7 +290,7 @@ def game():
 
       print("After that wierd encounter you leave the room")
 
-
+  #A Vairable that allows for the game to end
   if winner == "yes":
       print("You win")
 
